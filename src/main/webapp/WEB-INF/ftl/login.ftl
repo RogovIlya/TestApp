@@ -1,4 +1,4 @@
-<#include "header.ftl">
+<#include "header.ftl">${testAttr}
 <body>
 <div class="container">
     	<div class="row">

@@ -25,7 +25,7 @@ public class AuthenticationService implements UserDetailsService
 
 	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException
 	{
-		User user = userDAO.getUser(login);System.out.println(user);
+		User user = userDAO.getUser(login);
 		if (user != null)
 		{
 			GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
