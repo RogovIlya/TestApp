@@ -7,17 +7,38 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 
 import ru.rogov.entity.User;
-import ru.rogov.service.UserService;
 
-@Repository
-public class UserDAO implements UserService
+@Repository("userDao")
+public class UserDaoImpl implements UserDao
 {
 	@Autowired
 	private JdbcTemplate		jdbc;
 
-	private static final String	SQL_GET_USER_LOGIN_AND_PASSWORD	= "SELECT " + "    LOGIN, " + "    PASSWORD, " + "    R.ROLE " + "FROM " + "    db.USERS AS U " + "LEFT JOIN " + "    db.ROLES AS R " + "ON " + "    U.ROLE = R.ID " + "WHERE " + "    U.LOGIN = ? " + "AND U.PASSWORD = ?  LIMIT 1";
+	private static final String	SQL_GET_USER_LOGIN_AND_PASSWORD	= 
+			"SELECT " + 
+			"    LOGIN, " +
+			"    PASSWORD, " + 
+			"    R.ROLE " + 
+			"FROM " + 
+			"    db.USERS AS U " + "LEFT JOIN " + 
+			"    db.ROLES AS R " + 
+			"ON " + 
+			"    U.ROLE = R.ID " + "WHERE " + 
+			"    U.LOGIN = ? " + "AND U.PASSWORD = ?  LIMIT 1";
 
-	private static final String	SQL_GET_USER_LOGIN				= "SELECT " + "    LOGIN, " + "    PASSWORD, " + "    R.ROLE " + "FROM " + "    db.USERS AS U " + "LEFT JOIN " + "    db.ROLES AS R " + "ON " + "    U.ROLE = R.ID " + "WHERE " + "    U.LOGIN = ?  LIMIT 1";
+	private static final String	SQL_GET_USER_LOGIN	= 
+			"SELECT " + 
+			"    LOGIN, " + 
+			"    PASSWORD, " + 
+			"    R.ROLE " + 
+			"FROM " + 
+			"    db.USERS AS U " + 
+			"LEFT JOIN " + 
+			"    db.ROLES AS R " + 
+			"ON " + 
+			"    U.ROLE = R.ID " + 
+			"WHERE " + 
+			"    U.LOGIN = ?  LIMIT 1";
 
 	public void setJdbc(JdbcTemplate jdbc)
 	{

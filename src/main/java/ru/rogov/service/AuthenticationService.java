@@ -12,20 +12,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import ru.rogov.dao.UserDAO;
 import ru.rogov.entity.User;
 
-@Service
+@Service("AuthenticationService")
 public class AuthenticationService implements UserDetailsService
 {
 	private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 	
 	@Autowired
-	private UserDAO userDAO;
+	private UserService userService;
 
 	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException
 	{
-		User user = userDAO.getUser(login);
+		User user = userService.getUser(login);
 		if (user != null)
 		{
 			GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
