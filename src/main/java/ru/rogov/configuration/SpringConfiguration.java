@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 @ComponentScan(basePackages = "ru.rogov")
 public class SpringConfiguration extends WebMvcConfigurerAdapter
 {
-	@Bean(name = "Configuration")
+	@Bean(name = "viewResolver")
 	public ViewResolver viewResolver()
 	{
 		FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
@@ -67,6 +67,6 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry)
 	{
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 	}
 }

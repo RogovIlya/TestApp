@@ -13,7 +13,7 @@ public class TestListener implements ServletContextListener
 {
 	private static final Logger	logger	= LoggerFactory.getLogger(TestListener.class);
 	
-	@Override
+	//@Override
 	public void contextInitialized(ServletContextEvent sce)
 	{
 		ServletContext context = sce.getServletContext();
@@ -23,7 +23,7 @@ public class TestListener implements ServletContextListener
 		System.out.println("The application started");
 	}
 
-	@Override
+	//@Override
 	public void contextDestroyed(ServletContextEvent sce)
 	{
 		ServletContext context = sce.getServletContext();

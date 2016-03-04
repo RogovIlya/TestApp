@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -28,14 +29,15 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import ru.rogov.configuration.DbConfiguration;
-import ru.rogov.dao.UserDAO;
 import ru.rogov.entity.User;
-
+import ru.rogov.service.UserService;
+import ru.rogov.service.UserServiceImpl;
+@Ignore
 @Repository
 @RunWith(SpringJUnit4ClassRunner.class)
 @EnableWebMvc
 @WebAppConfiguration
-@ContextConfiguration(classes={DbConfiguration.class,UserDAO.class}, loader=AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes={DbConfiguration.class,UserServiceImpl.class}, loader=AnnotationConfigContextLoader.class)
 public class DBTest
 {
 	//@Autowired
@@ -44,7 +46,7 @@ public class DBTest
 	//JdbcTemplate jdbc;
 	
 	@Autowired
-	UserDAO userDao;
+	UserService userDao;
 	
 	
 	User admin;
@@ -70,12 +72,13 @@ public class DBTest
 		user = new User("user1","5f4dcc3b5aa765d61d8327deb882cf99","ROLE_USER");
 	  
 	}
+
 	@Test
 	public void testUserDao() throws SQLException
 	{
-		//assertEquals(user,userDao.getUser("user1"));
-		//assertEquals(admin,userDao.getUser("admin"));
-		//assertNull(userDao.getUser(null));
+		assertEquals(user,userDao.getUser("user1"));
+		assertEquals(admin,userDao.getUser("admin"));
+		assertNull(userDao.getUser(null));
 	}
 	
 }
