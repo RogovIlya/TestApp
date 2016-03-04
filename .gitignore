@@ -5,4 +5,4 @@ log/
 .settings/
 .classpath
 .metadata
-/bin/
+bin/
