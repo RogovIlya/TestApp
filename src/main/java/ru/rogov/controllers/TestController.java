@@ -17,9 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ru.rogov.service.ServiceFasade;
+import ru.rogov.service.UserService;
+
 @Controller
 public class TestController
 {
+	@Autowired
+	ServiceFasade fasade;
 
 	private static final Logger	logger	= LoggerFactory.getLogger(TestController.class);
 	
@@ -39,7 +44,10 @@ public class TestController
 	public ModelAndView test()
 	{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("test", context.getInitParameter("test"));
+		UserDetails userDetails =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		mv.addObject("test", fasade.getUserService().getUser(1L));
+		//mv.addObject("userDetails", userDetails);
+		
 		mv.setViewName("test");
 		return mv;
 	}
