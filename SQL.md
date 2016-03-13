@@ -1,4 +1,5 @@
-CREATE TABLE
+
+    CREATE TABLE
     RIGHTS
     (
         ID bigint DEFAULT '0' NOT NULL,
