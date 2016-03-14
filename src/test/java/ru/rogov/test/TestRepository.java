@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import ru.rogov.commons.Commons;
 import ru.rogov.configuration.SecurityWebApplicationInitializer;
 import ru.rogov.configuration.SpringConfiguration;
 import ru.rogov.entity.User;
@@ -28,9 +29,9 @@ public class TestRepository
 		u.setUsername("dfgdgdfgdfg");
 		u.setPassword("ccccc");
 		u.setId(5L);
-		User user  = fasade.getUserService().save(u);
+		User user  = fasade.getUserService().getUser("admin");
 		System.out.println("****************1");
-		System.out.println(user);
+		System.out.println(Commons.toJSon(user));
 		System.out.println("****************2");
 	}
 }
