@@ -29,9 +29,9 @@ public class TestRepository
 		u.setUsername("dfgdgdfgdfg");
 		u.setPassword("ccccc");
 		u.setId(5L);
-		User user  = fasade.getUserService().getUser("admin");
+		User user  = fasade.getUserService().getUser(2L);
 		System.out.println("****************1");
-		System.out.println(Commons.toJSon(user));
+		System.out.println(user);
 		System.out.println("****************2");
 	}
 }
