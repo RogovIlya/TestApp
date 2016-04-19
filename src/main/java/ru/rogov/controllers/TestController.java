@@ -43,6 +43,7 @@ public class TestController
 		ModelAndView model = new ModelAndView();
 		model.addObject("greeting", "Hi, Welcome to mysite");
 		model.setViewName("index");
+		
 		return model;
 	}
 

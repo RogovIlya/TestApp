@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:hibernate.properties")
+@PropertySource("classpath:configHibernate.properties")
 @EnableJpaRepositories("ru.rogov.repository")
 public class JpaConfiguration
 {
