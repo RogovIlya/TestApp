@@ -20,10 +20,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import ru.rogov.commons.Commons;
 import ru.rogov.entity.User;
 import ru.rogov.service.ServiceFasade;
-import ru.rogov.service.UserService;
 
 @Controller
 @SessionAttributes(value = {"user"},types = {User.class})
@@ -33,13 +31,13 @@ public class TestController
 	ServiceFasade fasade;
 
 	private static final Logger	logger	= LoggerFactory.getLogger(TestController.class);
-	
+
 	@Autowired
 	ServletContext context;
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public ModelAndView homePage()
-	{	
+	{
 		ModelAndView model = new ModelAndView();
 		model.addObject("greeting", "Hi, Welcome to mysite");
 		model.setViewName("index");
@@ -53,7 +51,7 @@ public class TestController
 		//UserDetails userDetails =  (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		mv.addObject("test", user);
 		//mv.addObject("userDetails", userDetails);
-		
+
 		mv.setViewName("test");
 		return mv;
 	}
@@ -69,7 +67,7 @@ public class TestController
 	public ModelAndView result()
 	{
 		ModelAndView mv = new ModelAndView();
-		
+
 		User user = fasade.getUserService().getUser(getPrincipal());
 		if(user == null)
 	           user = createUserSession();
@@ -83,7 +81,7 @@ public class TestController
         return new User();
 
     }
-	
+
 	@RequestMapping(value = "/logout")
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response,SessionStatus status)
 	{

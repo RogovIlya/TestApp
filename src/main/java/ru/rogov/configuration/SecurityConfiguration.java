@@ -19,10 +19,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-		/*auth.inMemoryAuthentication().withUser("user").password("123").roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("root").roles("ADMIN");*/
-		Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
-		auth.userDetailsService(authenticationService).passwordEncoder(passwordEncoder);
+		auth.inMemoryAuthentication().withUser("user").password("123").roles("USER");
+		auth.inMemoryAuthentication().withUser("admin").password("root").roles("ADMIN");
+		/*Md5PasswordEncoder passwordEncoder = new Md5PasswordEncoder();
+		auth.userDetailsService(authenticationService).passwordEncoder(passwordEncoder);*/
 	}
 
 	@Override
