@@ -27,17 +27,18 @@ import ru.rogov.service.UserService;
 
 @Controller
 @SessionAttributes(value = {"user"},types = {User.class})
-public class TestController
+@RequestMapping(value = { "/" })
+public class MainController
 {
 	@Autowired
 	ServiceFasade fasade;
 
-	private static final Logger	logger	= LoggerFactory.getLogger(TestController.class);
+	private static final Logger	logger	= LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	ServletContext context;
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/" },  method = RequestMethod.GET)
 	public ModelAndView homePage()
 	{	
 		ModelAndView model = new ModelAndView();

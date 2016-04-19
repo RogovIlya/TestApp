@@ -28,6 +28,7 @@ public class SpringConfiguration extends WebMvcConfigurerAdapter
 		resolver.setCache(true);
 		resolver.setPrefix("/WEB-INF/ftl/");
 		resolver.setSuffix(".ftl");
+		resolver.setContentType("text/html; charset=UTF-8");
 		
 		return resolver;
 	}
