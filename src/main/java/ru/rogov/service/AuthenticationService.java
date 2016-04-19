@@ -27,7 +27,7 @@ public class AuthenticationService implements UserDetailsService
 		User user = userService.getUser(login);
 		if (user != null)
 		{
-			GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
+			GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().getName());
 			UserDetails userDetails = (UserDetails) new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Arrays.asList(authority));
 			return userDetails;
 		} else
