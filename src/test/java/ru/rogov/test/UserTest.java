@@ -11,13 +11,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import ru.rogov.configuration.SecurityWebApplicationInitializer;
+import ru.rogov.configuration.WebApplicationInitializer;
 import ru.rogov.configuration.SpringConfiguration;
 import ru.rogov.entity.Role;
 import ru.rogov.entity.User;
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {SpringConfiguration.class, SecurityWebApplicationInitializer.class})
+@ContextConfiguration(classes = {SpringConfiguration.class, WebApplicationInitializer.class})
 @WebAppConfiguration
 public class UserTest
 {
