@@ -38,10 +38,12 @@ public class MainController
 	@Autowired
 	ServletContext context;
 
-	@RequestMapping(value = { "/" },  method = RequestMethod.GET)
-	public ModelAndView homePage()
+	@RequestMapping( method = RequestMethod.GET)
+	public ModelAndView homePage(@ModelAttribute User user)
 	{	
 		ModelAndView model = new ModelAndView();
+		System.out.println(user);
+		model.addObject("user", user);
 		model.addObject("greeting", "Hi, Welcome to mysite");
 		model.setViewName("index");
 		
@@ -60,23 +62,17 @@ public class MainController
 		return mv;
 	}
 
-	@RequestMapping(value = "/login")
-	public String login(ModelMap model)
-	{
-		model.addAttribute("user", createUserSession());
-		return "login";
-	}
 
-	@RequestMapping(value = "/result")
+	@RequestMapping(value = "/authentication")
 	public ModelAndView result()
 	{
 		ModelAndView mv = new ModelAndView();
-		
 		User user = fasade.getUserService().getUser(getPrincipal());
 		if(user == null)
 	           user = createUserSession();
 		mv.addObject("user", user);
-		mv.setViewName("result");
+		logger.info("Авторизовался пользователь = "+user);
+		mv.setViewName("index");
 		return mv;
 	}
 
@@ -96,7 +92,7 @@ public class MainController
 			status.setComplete();
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		return "login";
+		return "index";
 	}
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)

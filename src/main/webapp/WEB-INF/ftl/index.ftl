@@ -11,14 +11,16 @@
 					</button>
 					<a class="navbar-brand" href="#">AnimeGitHub</a>
 				</div>
+				<div>${user!"nulll"}</div>
 				<div id="navbar" class="navbar-collapse collapse">
-					<form class="navbar-form navbar-right">
+					<form class="navbar-form navbar-right" action="authentication" method="POST">
 						<div class="form-group">
-							<input type="text" placeholder="Email" class="form-control">
+							<input type="text" name = "login" placeholder="Email" class="form-control">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password" class="form-control">
+							<input type="password" name="password" placeholder="Password" class="form-control">
 						</div>
+						<input type="hidden" name="${_csrf.parameterName!""}" 	value="${_csrf.token!""}" />
 						<button type="submit" class="btn btn-success">Войти</button>
 					</form>
 				</div><!--/.navbar-collapse -->

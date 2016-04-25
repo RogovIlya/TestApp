@@ -91,6 +91,7 @@ body {
 .news-footer{ 
 	/* text-align: right; */
 	background-color: blueviolet;
+	height: 55px;
 }
 
 .rating_help {

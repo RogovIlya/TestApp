@@ -29,6 +29,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 	protected void configure(HttpSecurity http) throws Exception
 	{
 
-		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')").antMatchers("/").permitAll().and().formLogin().loginPage("/login").defaultSuccessUrl("/result").failureUrl("/login?error").usernameParameter("username").passwordParameter("password").and().logout().logoutSuccessUrl("/logout").and().csrf();
+		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')").
+		antMatchers("/").permitAll().and().formLogin().loginPage("/authentication").// loginPage по этой урле не будет работать мапинг в контролере
+		defaultSuccessUrl("/authentication").
+		failureUrl("/authentication?error").
+		usernameParameter("login").passwordParameter("password").
+		and().logout().logoutSuccessUrl("/logout").and().csrf();
 	}
 }

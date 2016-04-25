@@ -14,10 +14,10 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<form class="navbar-form navbar-right">
 						<div class="form-group">
-							<input type="text" placeholder="Email" class="form-control">
+							<input type="text" name = "login" placeholder="Login" class="form-control">
 						</div>
 						<div class="form-group">
-							<input type="password" placeholder="Password" class="form-control">
+							<input type="password" name ="password" placeholder="Password" class="form-control">
 						</div>
 						<button type="submit" class="btn btn-success">Войти</button>
 					</form>
@@ -67,7 +67,7 @@
 										<div class="row-fluid">
 											<div class="col-md-4 nopadding img-body">
 												<a href="#">
-													<img src="img/one_piece.jpg" alt="name" class="img-rounded img-header">
+													<img src="static/img/one_piece.jpg" alt="name" class="img-rounded img-header">
 												</a>
 												<div class ="rating">
 													<h4>Рейтинг:&nbsp;<span class = "value_rating"></span>/<span class="value_rating_max"></span></h4>
@@ -131,11 +131,11 @@
 											</div>
 										</div>
 										<div class="row-fluid player" id="videoplayer">
-											<script type="text/javascript"> 
+											<!--script type="text/javascript"> 
 											   var flashvars = {}; 
 											   var params = {bgcolor:"#ffffff", wmode:"window", allowFullScreen:"true", allowScriptAccess:"always"}; 
 											   swfobject.embedSWF("uppod.swf", "videoplayer", "500", "100", "10.0.0.0", false, flashvars, params); 
-											</script>
+											</script-->
 										<!--iframe  src="https://www.rutube.ru/play/embed/4847725" frameborder="0" allowfullscreen></iframe-->
 										
 										</div>
