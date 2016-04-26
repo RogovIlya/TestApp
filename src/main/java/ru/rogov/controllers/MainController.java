@@ -26,7 +26,7 @@ import ru.rogov.service.ServiceFasade;
 import ru.rogov.service.UserService;
 
 @Controller
-@SessionAttributes(value = {"user"},types = {User.class})
+//@SessionAttributes(value = {"user"},types = {User.class})
 @RequestMapping(value = { "/" })
 public class MainController
 {
@@ -44,7 +44,7 @@ public class MainController
 		ModelAndView model = new ModelAndView();
 		System.out.println(user);
 		model.addObject("user", user);
-		model.addObject("greeting", "Hi, Welcome to mysite");
+		
 		model.setViewName("index");
 		
 		return model;
@@ -62,59 +62,12 @@ public class MainController
 		return mv;
 	}
 
-
-	@RequestMapping(value = "/authentication")
-	public ModelAndView result()
-	{
-		ModelAndView mv = new ModelAndView();
-		User user = fasade.getUserService().getUser(getPrincipal());
-		if(user == null)
-	           user = createUserSession();
-		mv.addObject("user", user);
-		logger.info("Авторизовался пользователь = "+user);
-		mv.setViewName("index");
-		return mv;
-	}
-
-	@ModelAttribute("user")
-    public User createUserSession() {
-        return new User();
-
-    }
 	
-	@RequestMapping(value = "/logout")
-	public String logoutPage(HttpServletRequest request, HttpServletResponse response,SessionStatus status)
-	{
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null)
-		{
-			System.out.println("*************удалил user");
-			status.setComplete();
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		return "index";
-	}
-
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(ModelMap model,User user)
 	{
 		model.addAttribute("user", user);
 		return "admin";
-	}
-
-	private String getPrincipal()
-	{
-		String userName = null;
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-		if (principal instanceof UserDetails)
-		{
-			userName = ((UserDetails) principal).getUsername();
-		} else
-		{
-			userName = principal.toString();
-		}
-		return userName;
 	}
 
 }

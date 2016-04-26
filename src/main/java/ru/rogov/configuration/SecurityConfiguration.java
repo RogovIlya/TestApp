@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')").
 		antMatchers("/").permitAll().and().formLogin().loginPage("/authentication").// loginPage по этой урле не будет работать мапинг в контролере
 		defaultSuccessUrl("/authentication").
-		failureUrl("/authentication?error").
+		failureUrl("/authentication?error=noAuth").
 		usernameParameter("login").passwordParameter("password").
 		and().logout().logoutSuccessUrl("/logout").and().csrf();
 	}

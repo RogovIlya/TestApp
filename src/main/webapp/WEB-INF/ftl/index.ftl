@@ -1,38 +1,8 @@
 <#include "header.ftl">
+<#include "macros.ftl">
 	<body>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">AnimeGitHub</a>
-				</div>
-				<div>${user!"nulll"}</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<form class="navbar-form navbar-right" action="authentication" method="POST">
-						<div class="form-group">
-							<input type="text" name = "login" placeholder="Email" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" name="password" placeholder="Password" class="form-control">
-						</div>
-						<input type="hidden" name="${_csrf.parameterName!""}" 	value="${_csrf.token!""}" />
-						<button type="submit" class="btn btn-success">Войти</button>
-					</form>
-				</div><!--/.navbar-collapse -->
-			</div>
-		</nav>
-		<div class="row-fluid center" style="padding-top: 5%; background-color: #F7C923;">
-			<div class="container-fluid">
-				<h1>Тестовый</h1>
-				<p></p>
-				<p><a href="#" target="_blank" class="btn btn-success btn-lg">Get started today</a></p>
-			</div>
-		</div>
+		<#include "navbar.ftl">
+		<@banner text="fsfasf"/>
 		<div class="container-fluid nopadding">
 			<!-- Example row of columns -->
 			<div class="row-fluid">
