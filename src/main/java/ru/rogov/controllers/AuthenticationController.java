@@ -23,8 +23,7 @@ import ru.rogov.entity.User;
 import ru.rogov.service.ServiceFasade;
 
 @Controller
-@SessionAttributes(value = {"user"},types = {User.class})
-public class AuthenticationController
+public class AuthenticationController extends AuthenticationUserSession
 {
 	@Autowired
 	ServiceFasade fasade;
@@ -73,10 +72,5 @@ public class AuthenticationController
 		mv.setViewName("redirect:/");
 		return mv;
 	}
-	
-	@ModelAttribute("user")
-    public User createUserSession() {
-        return new User();
-    }
 
 }

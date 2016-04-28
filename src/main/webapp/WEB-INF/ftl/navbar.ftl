@@ -10,10 +10,14 @@
 					<a class="navbar-brand" href="#">AnimeGitHub</a>
 				</div>
 				<#if user.getUsername()?? >
-					<div style = "color:white" >${user!"nulll"}</div>
-					<a class="btn" href="logout" role="button" style = "text-align:left;color: white;">
-						<b>Выйти</b>
-					</a>
+				<div class="col-md-10 text-right">
+					<div class = "row">
+						<span style = "color:white" >${user.getUsername()!""}</span>
+						<a class="btn btn-success" href="logout" role="button">
+							<b>Выйти</b>
+						</a>
+					</div>
+				</div>
 				<#else>
 					<div id="navbar" class="navbar-collapse collapse">
 					<form class="navbar-form navbar-right" action="authentication" method="POST">
