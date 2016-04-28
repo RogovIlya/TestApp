@@ -5,7 +5,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.google.gson.Gson;
 
-import ru.rogov.entity.User;
 
 public class Commons
 {
