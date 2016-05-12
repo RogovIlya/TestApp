@@ -26,6 +26,43 @@ $(function() {
 				plus.removeClass('minus');
 			});	
 		}
+		
+	});
+	
+	$('.registr').on('click',function(event){
+		var form = $('.form_registr');
+		console.log(form);
+		if(form.css('display') == 'none')
+		{	
+			form.slideDown('slow');
+		}
+		else
+		{
+			form.slideUp('slow');
+		}
 				
 	});
+	
+	/*$('#auth').submit(function(event){
+		$(this).hide();
+		$("#user_auth").show();
+		event.preventDefault();
+	});
+	
+	$('#user_auth').submit(function(event){
+		$(this).hide();
+		$("#auth").show();
+		event.preventDefault();
+	});*/
+	
+	 $(".dropdown").hover(            
+			 function() {
+		          $('.dropdown-menu', this).not('.in .dropdown-menu').stop( true, true ).slideDown("fast");
+		          $(this).toggleClass('open');        
+		     },
+		     function() {
+		          $('.dropdown-menu', this).not('.in .dropdown-menu').stop( true, true ).slideUp("fast");
+		          $(this).toggleClass('open');       
+		     }
+	);
 });

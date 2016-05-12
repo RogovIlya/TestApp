@@ -1,36 +1,7 @@
 <#include "header_anime.ftl">
 	<body>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">AnimeGitHub</a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-					<form class="navbar-form navbar-right">
-						<div class="form-group">
-							<input type="text" name = "login" placeholder="Login" class="form-control">
-						</div>
-						<div class="form-group">
-							<input type="password" name ="password" placeholder="Password" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-success">Войти</button>
-					</form>
-				</div><!--/.navbar-collapse -->
-			</div>
-		</nav>
-		<div class="row-fluid center" style="padding-top: 5%; background-color: #F7C923;">
-			<div class="container-fluid">
-				<h1>Тестовый</h1>
-				<p></p>
-				<p><a href="#" target="_blank" class="btn btn-success btn-lg">Get started today</a></p>
-			</div>
-		</div>
+		<#include "navbar.ftl">
+		<@banner text="fsfasf"/>
 		<div class="container-fluid nopadding">
 			<!-- Example row of columns -->
 			<div class="row-fluid">
@@ -131,11 +102,14 @@
 											</div>
 										</div>
 										<div class="row-fluid player" id="videoplayer">
-											<!--script type="text/javascript"> 
-											   var flashvars = {}; 
-											   var params = {bgcolor:"#ffffff", wmode:"window", allowFullScreen:"true", allowScriptAccess:"always"}; 
-											   swfobject.embedSWF("uppod.swf", "videoplayer", "500", "100", "10.0.0.0", false, flashvars, params); 
-											</script-->
+											<script type="text/javascript">
+												this.player = new Uppod({
+													st:"uppodvideo",
+													m:"video",
+													uid:"videoplayer",
+													pl:"static/pl/playlist.json",
+													comment:"test1111"});
+											</script>
 										<!--iframe  src="https://www.rutube.ru/play/embed/4847725" frameborder="0" allowfullscreen></iframe-->
 										
 										</div>

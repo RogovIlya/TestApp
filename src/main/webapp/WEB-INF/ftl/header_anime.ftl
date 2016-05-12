@@ -24,6 +24,7 @@
 		<script src="static/js/anime.js"></script>
 		<script src="static/js/rating.js"></script>
 		<script src="static/js/jquery.rateit.js"></script>
-		<script src="static/js/uppod-0.6.3.js"></script>
+		<script src="static/js/uppod.js"></script>
 		<script type="text/javascript" src="static/js/swfobject.js"></script>
+		<script src="static/js/video236-231.js" type="text/javascript"></script>
 	</head>

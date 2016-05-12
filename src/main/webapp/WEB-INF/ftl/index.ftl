@@ -16,7 +16,7 @@
 						<div class="col-md-6 text-left nopadding">
 							<div class = "news panel news-panel">
 								<div class="news-header-panel panel-heading" >
-									<a class="btn" href="anime.html" role="button" style = "text-align:left;color: white;">
+									<a class="btn" href="anime" role="button" style = "text-align:left;color: white;">
 										<b>ONE PIECE (ВАН ПИС)</b>
 									</a>
 								</div>
@@ -107,7 +107,7 @@
 									</div>
 									<div class="container-fluid nopadding">
 										<div class="row-fluid" style="margin-top: -20px;">
-											<a href="anime.html" class="btn btn-primary btn-md" role="button">
+											<a href="anime" class="btn btn-primary btn-md" role="button">
 													<b>Смотреть</b>
 													<span class="badge">3</span>
 											</a>

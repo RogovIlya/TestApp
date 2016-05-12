@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,9 +30,10 @@ public class AuthenticationController extends AuthenticationUserSession
 	private static final Logger	logger	= LoggerFactory.getLogger(AuthenticationController.class);
 	
 	@RequestMapping(value = "/authentication", method = RequestMethod.GET)
-	public ModelAndView authentication(@RequestParam(value="error",required=false) String error)
+	public ModelAndView authentication(@RequestParam(value="error",required=false) String error,HttpServletRequest request)
 	{
-		
+		String referer = request.getHeader("Referer");
+
 		if(error != null && !error.isEmpty())
 		{
 			logger.info("Произошла ошибка при авторизации пользователя! Тип ошибки = "+error);
@@ -52,7 +52,7 @@ public class AuthenticationController extends AuthenticationUserSession
 		}
 		
 		mv.addObject("user", user);
-		mv.setViewName("index");
+		mv.setViewName("redirect:"+referer);
 		
 		return mv;
 	}
@@ -60,6 +60,8 @@ public class AuthenticationController extends AuthenticationUserSession
 	@RequestMapping(value = "/logout")
 	public ModelAndView logoutPage(HttpServletRequest request, HttpServletResponse response,SessionStatus status)
 	{
+		String referer = request.getHeader("Referer");
+		
 		ModelAndView mv = new ModelAndView();
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -69,8 +71,23 @@ public class AuthenticationController extends AuthenticationUserSession
 			status.setComplete();
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		mv.setViewName("redirect:/");
+		mv.setViewName("redirect:"+referer);
+		
 		return mv;
 	}
 
+	
+	@RequestMapping(value = "/registr" )
+	public ModelAndView registrUser(@ModelAttribute User user,HttpServletRequest request)
+	{	
+		
+		String referer = request.getHeader("Referer");
+		
+		ModelAndView model = new ModelAndView();
+		model.addObject("user", user);
+		
+		model.setViewName("redirect:"+referer);
+		
+		return model;
+	}
 }
