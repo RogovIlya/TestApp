@@ -1,4 +1,5 @@
 <#include "header_anime.ftl">
+<#include "macros.ftl">
 	<body>
 		<#include "navbar.ftl">
 		<@banner text="fsfasf"/>
